@@ -23,6 +23,10 @@ pub struct OAuthInfo {
     oauth_success_url: String
 }
 
+async fn root() -> &'static str {
+    "Hello, World!"
+}
+
 #[shuttle_runtime::main]
 async fn main(
     #[shuttle_secrets::Secrets] secrets: SecretStore,
@@ -62,6 +66,7 @@ async fn main(
         .nest("/api/auth", auth_router)
         .nest("/api", api_router)
         .nest("/list", list_router)
+        .route("/", get(root))
         .layer(Extension(oauth_client))
         .with_state(state);
 
