@@ -60,7 +60,8 @@ async fn main(
 
     let api_router = Router::new()
         .route("/search", get(routes::api::search))
-        .route("/episode", get(routes::api::episode));
+        .route("/episode", get(routes::api::episode))
+        .route("/show", get(routes::shows::get_show));
 
     let router = Router::new()
         .nest("/api/auth", auth_router)
