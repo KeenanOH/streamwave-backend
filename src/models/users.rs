@@ -16,7 +16,7 @@ pub struct Model {
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {
-    #[sea_orm(has_many = "super::sessions::Entity")]
+    #[sea_orm(has_one = "super::sessions::Entity")]
     Sessions,
     #[sea_orm(has_one = "super::users_shows::Entity")]
     UsersShows,

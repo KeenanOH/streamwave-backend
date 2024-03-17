@@ -62,6 +62,7 @@ pub async fn search(query: Query<SearchQuery>, State(state): State<AppState>) ->
                 translation_type: Set(show_result.translation_type.to_owned()),
                 name: Set(show_result.name.to_owned()),
                 image_url: Set(show_result.image_url.to_owned()),
+                episodes: Set(show_result.episodes.to_owned() as i32),
                 ..Default::default()
             }
         })

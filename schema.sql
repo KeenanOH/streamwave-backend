@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS shows (
     name TEXT NOT NULL,
     image_url TEXT NOT NULL,
     last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    episodes INT NOT NULL,
 
     UNIQUE KEY (show_id, translation_type)
 );
